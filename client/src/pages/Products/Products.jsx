@@ -31,30 +31,7 @@ const Products = () => {
       <div className="left">
         <div className="filterItem">
           <h2>Категорії</h2>
-          <div className="inputItem" key="some key">
-              <input
-                type="checkbox"
-                id={1}
-                value={1}
-              />
-              <label htmlFor="Чоловіки">Жінки</label>
-            </div>
-            <div className="inputItem" key="some key 1">
-              <input
-                type="checkbox"
-                id={2}
-                value={2}
-              />
-              <label htmlFor="Чоловіки">Чоловіки</label>
-            </div>
-            <div className="inputItem" key="some key 2">
-              <input
-                type="checkbox"
-                id={3}
-                value={3}
-              />
-              <label htmlFor="Чоловіки">Діти</label>
-            </div>
+
           {data?.map((item) => (
             <div className="inputItem" key={item.id}>
               <input
@@ -67,6 +44,8 @@ const Products = () => {
             </div>
           ))}
         </div>
+
+
         <div className="filterItem">
           <h2>Ціна</h2>
           <div className="inputItem">

@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="left">
           <div>
             <Link to="/">
-              <img src={logo} alt="logo" style={{ width: '120px', borderRadius: '5px' }}/>
+              <img src={logo} alt="logo" style={{ width: '100px', borderRadius: '5px' }}/>
             </Link>
           </div>
           <div className="item">
