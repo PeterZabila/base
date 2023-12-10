@@ -689,7 +689,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.Text;
+    desc: Attribute.Text;
     img: Attribute.Media;
     products: Attribute.Relation<
       'api::category.category',
@@ -732,7 +732,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.Text;
+    desc: Attribute.Text;
     img: Attribute.Media;
     img2: Attribute.Media;
     price: Attribute.Decimal;
@@ -747,7 +747,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::sub-category.sub-category'
     >;
-    type: Attribute.Enumeration<['normal', 'featured', 'trending']>;
+    type: Attribute.Enumeration<['normal', 'trending', 'featured']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -8,19 +8,19 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss"
 import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logoB.png'
 
 const Navbar = () => {
   const [open,setOpen] = useState(false)
   const products = useSelector((state) => state.cart.products);
 
   return (
-    <div className="navbar">
-      <div className="wrapper">
+    <nav className="navbar">
+      <div className="wrapper max-lg:invisible">
         <div className="left">
           <div>
             <Link to="/">
-              <img src={logo} alt="logo" style={{ width: '100px', borderRadius: '5px' }}/>
+              <img src={logo} alt="logo" className="w-[80px] h-[80px]"/>
             </Link>
           </div>
           <div className="item">
@@ -33,13 +33,12 @@ const Navbar = () => {
             <Link className ="link" to="/products/3">Діти</Link>
           </div>
         </div>
+
         <div className="center">
-          <Link className ="link" to="/">МАГАЗИН</Link>
+          <Link className ="link max-lg:invisible" to="/">ONLINE SHOP</Link>
         </div>
+
         <div className="right">
-          <div className="item">
-            <Link className ="link" to="/">На головну</Link>
-          </div>
           <div className="item">
             <Link className ="link" to="/about">Про нас</Link>
           </div>
@@ -61,7 +60,7 @@ const Navbar = () => {
         </div>
       </div>
       {open && <Cart/>}
-    </div>
+    </nav>
   );
 };
 

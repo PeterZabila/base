@@ -15,7 +15,7 @@
     "title": {
       "type": "string"
     },
-    "description": {
+    "desc": {
       "type": "text"
     },
     "img": {
@@ -24,7 +24,9 @@
       "required": false,
       "allowedTypes": [
         "images",
-        "videos"
+        "files",
+        "videos",
+        "audios"
       ]
     },
     "img2": {
@@ -61,8 +63,8 @@
       "type": "enumeration",
       "enum": [
         "normal",
-        "featured",
-        "trending"
+        "trending",
+        "featured"
       ]
     }
   }

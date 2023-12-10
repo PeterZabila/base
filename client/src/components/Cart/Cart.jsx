@@ -12,28 +12,26 @@ const Cart = () => {
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
-
-  const data = [{
-    id: 1,
-    img: "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    title: 'Hat',
-    description: "lorem ipsum dolor",
-    oldPrice: 19,
-    price: 12,
-    isNew: true,
-  },
-  {
-    id: 2,
-    img: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    img2: "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    title: 'Hat',
-    description: "lorem ipsum dolor",
-    oldPrice: 49,
-    price: 9,
-  },
-]
-
+//   const data = [{
+//     id: 1,
+//     img: "https://images.pexels.com/photos/1549200/pexels-photo-1549200.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//     img2: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//     title: 'Hat',
+//     description: "lorem ipsum dolor",
+//     oldPrice: 19,
+//     price: 12,
+//     isNew: true,
+//   },
+//   {
+//     id: 2,
+//     img: "https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//     img2: "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//     title: 'Hat',
+//     description: "lorem ipsum dolor",
+//     oldPrice: 49,
+//     price: 9,
+//   },
+// ]
 
   const totalPrice = () => {
     let total = 0;
@@ -60,12 +58,13 @@ const Cart = () => {
       console.log(err);
     }
   };
+
   return (
     <div className="cart">
       <h1>Products in your cart</h1>
-      {data?.map((item) => (
+      {products?.map((item) => (
         <div className="item" key={item.id}>
-          <img src={item.img} alt="" />
+          <img src={process.env.REACT_APP_UPLOAD_URL + item.img} alt="" />
           <div className="details">
             <h1>{item.title}</h1>
             <p>{item.desc?.substring(0, 100)}</p>
@@ -81,8 +80,7 @@ const Cart = () => {
       ))}
       <div className="total">
         <span>SUBTOTAL</span>
-        {/* <span>${totalPrice()}</span> */}
-        <span>$123</span>
+        <span>${totalPrice()}</span>
       </div>
       <button onClick={handlePayment}>PROCEED TO CHECKOUT</button>
       <span className="reset" onClick={() => dispatch(resetCart())}>
